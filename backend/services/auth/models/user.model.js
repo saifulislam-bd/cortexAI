@@ -1,8 +1,8 @@
-import { Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const userSchema = new Schema(
   {
-    firebaseId: { type: String, unique: true },
+    firebaseUid: { type: String, unique: true },
     name: String,
     email: { type: String, unique: true },
     avatarUrl: String,

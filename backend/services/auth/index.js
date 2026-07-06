@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import connectDB from "./config/db.js";
+import authRouter from "./routes/auth.route.js";
 
 const PORT = process.env.PORT ?? 8001;
 const app = express();
@@ -14,6 +15,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ message: "Auth Service is OK" });
 });
+
+app.use("/auth", authRouter);
+
 const startServer = async () => {
   try {
     // 1. Establish DB connection first
